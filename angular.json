@@ -21,7 +21,7 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
-                        "outputPath": "dist",
+                        "outputPath": "dist/cloudflare",
                         "index": "src/index.html",
                         "main": "src/main.ts",
                         "polyfills": "src/polyfills.ts",
@@ -43,7 +43,7 @@
                     },
                     "configurations": {
                         "production": {
-                            "outputPath": "dist",
+                            "outputPath": "dist/cloudflare",
                             "budgets": [
                                 {
                                     "type": "initial",
@@ -62,15 +62,7 @@
                                     "with": "src/environments/environment.prod.ts"
                                 }
                             ],
-                            "optimization": true,
-                            "outputHashing": "all",
-                            "sourceMap": false,
-                            "extractCss": true,
-                            "namedChunks": false,
-                            "aot": true,
-                            "extractLicenses": true,
-                            "vendorChunk": false,
-                            "buildOptimizer": true
+                            "outputHashing": "all"
                         },
                         "development": {
                             "buildOptimizer": false,
