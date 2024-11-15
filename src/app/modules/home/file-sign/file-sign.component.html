@@ -1,0 +1,47 @@
+<app-subpage title="Signer un fichier">
+
+    <form class="flex flex-col space-y-4" [formGroup]="signForm" (ngSubmit)="signFile()">
+
+        <div class="flex flex-col space-y-2">
+
+
+            <c-input
+                class="w-full"
+                name="passphrase"
+                label="Mot de passe (12 caractères minimum)"
+                (change)="onImagePicked($event)"
+                type="password"
+                [formControl]="f.getControl(signForm, 'passphrase')"
+                [additionalValidators]="f.getValidators(signForm, 'passphrase')"
+            />
+
+            <c-input
+                class="w-full"
+                name="file"
+                #filePicker
+                label="Fichier à signer"
+                (change)="onImagePicked($event)"
+                type="file"
+                [formControl]="f.getControl(signForm, 'file')"
+                [additionalValidators]="f.getValidators(signForm, 'file')"
+            />
+
+            <c-input
+                class="w-full"
+                name="private_key"
+                #keyPicker
+                label="Clé privée"
+                (change)="onPrivateKeyPicked($event)"
+                type="file"
+                [formControl]="f.getControl(signForm, 'private_key')"
+                [additionalValidators]="f.getValidators(signForm, 'private_key')"
+            />
+
+        </div>
+
+        <app-button impact="bold" tone="primary" shape="rounded" size="medium"> Signer le fichier </app-button>
+
+
+    </form>
+
+</app-subpage>

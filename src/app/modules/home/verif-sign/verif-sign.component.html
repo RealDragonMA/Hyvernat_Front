@@ -1,0 +1,45 @@
+<app-subpage title="Signer un fichier">
+
+    <form class="flex flex-col space-y-4" [formGroup]="verifForm" (ngSubmit)="verifSign()">
+
+
+        <c-input
+            class="w-full"
+            name="file"
+            #filePicker
+            label="Fichier à vérifier"
+            (change)="onImagePicked($event)"
+            type="file"
+            [formControl]="f.getControl(verifForm, 'file')"
+            [additionalValidators]="f.getValidators(verifForm, 'file')"
+        />
+
+        <c-input
+            class="w-full"
+            name="file"
+            #testPicker
+            label="Signature (fichier .sig)"
+            (change)="onSignaturePicked($event)"
+            type="file"
+            [formControl]="f.getControl(verifForm, 'signature')"
+            [additionalValidators]="f.getValidators(verifForm, 'signature')"
+        />
+
+        <c-input
+            class="w-full"
+            name="private_key"
+            #keyPicker
+            label="Clé publique"
+            (change)="onPublicKeyPicked($event)"
+            type="file"
+            [formControl]="f.getControl(verifForm, 'public_key')"
+            [additionalValidators]="f.getValidators(verifForm, 'public_key')"
+        />
+
+
+        <app-button impact="bold" tone="primary" shape="rounded" size="medium"> Vérifier la signature </app-button>
+
+
+    </form>
+
+</app-subpage>

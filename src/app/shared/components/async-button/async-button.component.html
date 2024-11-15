@@ -1,0 +1,8 @@
+<app-button type="button" (buttonClick)="handleClick()" impact="bold" tone="primary" shape="rounded" size="medium">
+    <ng-container *ngIf="!isLoading; else loading">
+        {{ buttonText }}
+    </ng-container>
+    <ng-template #loading>
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+    </ng-template>
+</app-button>

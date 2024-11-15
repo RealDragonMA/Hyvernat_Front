@@ -1,0 +1,22 @@
+<app-subpage title="Signer un fichier">
+
+    <form class="flex flex-col space-y-4" [formGroup]="invertForm" (ngSubmit)="invertFile()">
+
+            <c-input
+                class="w-full"
+                name="file"
+                #filePicker
+                label="Fichier à inverser"
+                (change)="onImagePicked($event)"
+                type="file"
+                [formControl]="f.getControl(invertForm, 'file')"
+                [additionalValidators]="f.getValidators(invertForm, 'file')"
+            />
+
+
+        <app-button impact="bold" tone="primary" shape="rounded" size="medium"> Inverser le fichier </app-button>
+
+
+    </form>
+
+</app-subpage>

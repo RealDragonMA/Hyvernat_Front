@@ -1,0 +1,20 @@
+<div>
+    <!-- Header -->
+    <div class="mb-4 flex justify-between">
+        <div class="inline-block">
+            <h3 class="font-semibold text-foreground">{{ title }}</h3>
+            <div class="space-x-1 text-xs font-medium text-muted-foreground">
+                <span>{{ subtitle }}</span>
+            </div>
+        </div>
+
+        <div>
+            <ng-content select="[page-actions]"></ng-content>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div>
+        <ng-content />
+    </div>
+</div>

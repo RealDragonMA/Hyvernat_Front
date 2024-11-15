@@ -1,0 +1,76 @@
+<app-subpage title="Créer un diplôme">
+
+    <form class="flex flex-col space-y-4" [formGroup]="diplomaForm" (ngSubmit)="createDiploma()">
+
+        <div class="flex flex-col space-y-2">
+            <span class="text-muted-foreground text-sm">Informations sur la personne</span>
+            <div class="flex flex-col 2xl:flex-row xl:flex-row lg:flex-row gap-4">
+                <c-input
+                    class="w-full"
+                    name="firstname"
+                    label="Prénom"
+                    [formControl]="f.getControl(diplomaForm, 'firstname')"
+                    [additionalValidators]="f.getValidators(diplomaForm, 'firstname')"
+                />
+
+                <c-input
+                    class="w-full"
+                    name="lastname"
+                    label="Nom"
+                    [formControl]="f.getControl(diplomaForm, 'lastname')"
+                    [additionalValidators]="f.getValidators(diplomaForm, 'lastname')"
+                />
+            </div>
+
+        </div>
+
+        <div class="flex flex-col space-y-2">
+            <span class="text-muted-foreground text-sm">Informations sur le diplôme</span>
+            <div class="flex flex-col 2xl:flex-row xl:flex-row lg:flex-row gap-4">
+                <c-input
+                    class="w-full"
+                    name="grade"
+                    label="Note"
+                    type="number"
+                    [formControl]="f.getControl(diplomaForm, 'grade')"
+                    [additionalValidators]="f.getValidators(diplomaForm, 'grade')"
+                />
+
+                <c-input
+                    class="w-full"
+                    name="classes"
+                    label="Intitulé"
+                    [formControl]="f.getControl(diplomaForm, 'classes')"
+                    [additionalValidators]="f.getValidators(diplomaForm, 'classes')"
+                />
+
+                <c-input
+                    class="w-full"
+                    name="date"
+                    label="Date"
+                    type="date"
+                    [formControl]="f.getControl(diplomaForm, 'date')"
+                    [additionalValidators]="f.getValidators(diplomaForm, 'date')"
+                />
+
+            </div>
+
+
+            <c-input
+                class="w-full"
+                name="file"
+                #filePicker
+                label="Image de fond"
+                (change)="onImagePicked($event)"
+                type="file"
+                [additionalValidators]="f.getValidators(diplomaForm, 'file')"
+            />
+
+        </div>
+            
+        <app-button impact="bold" tone="primary" shape="rounded" size="medium"> Créer le diplôme </app-button>
+
+
+    </form>
+
+</app-subpage>
