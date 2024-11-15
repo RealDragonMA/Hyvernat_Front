@@ -43,6 +43,7 @@
                     },
                     "configurations": {
                         "production": {
+                            "outputPath": "dist/cloudflare",
                             "budgets": [
                                 {
                                     "type": "initial",
